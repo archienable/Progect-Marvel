@@ -1,0 +1,73 @@
+.jpeg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    height: 450px;
+    /*width: 100%;*/
+}
+
+.containerMovies {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.contentMovies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 10px;
+    margin-top: 30px;
+    max-width: 1200px;
+}
+
+.film {
+    max-width: 190px;
+}
+
+.film:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.backFilm {
+    background-color: red;
+    height: 284px;
+    width: 190px;
+    box-shadow: 0 0 10px #202020;
+}
+
+.backImg {
+    height: 100%;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    transition: 0.1s linear;
+}
+
+.backImg:hover {
+    transform: translateY(-5px);
+}
+
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    transition: 0.1s linear;
+}
+
+.img:hover {
+    transform: translateY(-15px);
+}
+
+.title {
+    padding-top: 10px;
+    font-size: medium;
+}
+
+.date {
+    font-size: small;
+    color: grey;
+}
+

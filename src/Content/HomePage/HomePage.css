@@ -1,0 +1,8 @@
+.pictures {
+    background-image: url("https://terrigen-cdn-dev.marvel.com/content/prod/1x/amwqm_base_set_dsk.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
