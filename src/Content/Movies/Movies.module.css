@@ -2,8 +2,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    height: 450px;
-    /*width: 100%;*/
+    height: 300px;
+    overflow-y: scroll;
 }
 
 .containerMovies {
@@ -71,3 +71,17 @@
     color: grey;
 }
 
+
+@media (max-width: 1200px) {
+    .jpeg {
+        /*background-position: center;*/
+        background-size: cover;
+    }
+}
+
+@media (max-width: 806px) {
+    .jpeg {
+        background-position: center top;
+        background-size: 100%;
+    }
+}

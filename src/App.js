@@ -5,6 +5,7 @@ import HomePage from "./Content/HomePage/HomePage";
 import Movies from "./Content/Movies/Movies";
 import TvShows from "./Content/TvShows/TvShows";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import FilmInfo from "./Content/Movies/FilmInfo/FilmInfo";
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
                             <Route path='/' element={<HomePage />} />
                             <Route path='/movies' element={<Movies />} />
                             <Route path='/tvShows' element={<TvShows />} />
+                            <Route path='/movies/:film' element={<FilmInfo />} />
+                            {/*<Route path='/movies/film:id' element={<FilmInfo />} />*/}
                         </Routes>
                     </div>
                 <div>

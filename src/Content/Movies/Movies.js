@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import style from './Movies.module.css'
-import bannerTwo from '../../picture/bannerTwo.webp'
+// import bannerTwo from '../../picture/bannerTwo.webp'
 import backLogo from '../../picture/Marvel_Logo.png'
+import moment from 'moment';
+import {Link} from "react-router-dom";
+
 
 
 const Movies = () => {
@@ -15,31 +18,30 @@ const Movies = () => {
 
     },[])
 
-    console.log(data)
-
-    console.log(bannerTwo)
-
     return (
         <div>
             {/*<div className={style.jpeg} style={{backgroundImage: `url(${bannerTwo})`}}></div>*/}
-            {/*<div className={style.jpeg} style={{backgroundImage: `url(https://i.pinimg.com/originals/fa/d7/7e/fad77edca39069924afaf3d0df020e30.jpg)`}}></div>*/}
-            <div className={style.jpeg} style={{backgroundImage: `url(https://cdn.shopify.com/s/files/1/2491/1072/collections/MARVEL_1920x450_b691539a-a0cb-4a43-8d20-ca9d567ab290_1920x450.jpg?v=1581967770)`}}></div>
+            <div className={style.jpeg} style={{backgroundImage: `url(https://i.pinimg.com/originals/fa/d7/7e/fad77edca39069924afaf3d0df020e30.jpg)`}}></div>
+            {/*<div className={style.jpeg} style={{backgroundImage: `url(https://cdn.shopify.com/s/files/1/2491/1072/collections/MARVEL_1920x450_b691539a-a0cb-4a43-8d20-ca9d567ab290_1920x450.jpg?v=1581967770)`}}></div>*/}
             <div className={style.containerMovies}>
                 <h2>MARVEL MOVIES</h2>
                 <div className={style.contentMovies}>
                     {data.map( film => {
                         return (
-                            <div className={style.film}>
-                                <div className={style.backFilm}>
-                                    <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
-                                        <div className={style.img} style={{backgroundImage: `url(${film.cover_url})`}}></div>
+                            <Link to={`/movies/${film.id}`}>
+                                <div className={style.film} id={`${film.id}`}>
+                                    {/*{console.log('MARVEL', film)}*/}
+                                    <div className={style.backFilm}>
+                                        <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
+                                            <div className={style.img} style={{backgroundImage: `url(${film.cover_url})`}}></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className={style.title}>{film.title}</div>
+                                        <div className={style.date}>{moment(film.release_date).format("D MMM YYYY")}</div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div className={style.title}>{film.title}</div>
-                                    <div className={style.date}>{film.release_date}</div>
-                                </div>
-                            </div>
+                            </Link>
                     )
                     }).reverse()}
                 </div>

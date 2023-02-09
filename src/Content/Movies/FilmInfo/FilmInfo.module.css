@@ -1,0 +1,34 @@
+.containerFilm {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.img{
+    /*border: 3px solid red;*/
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    box-shadow: 0 0 10px #202020;
+}
+
+.title {
+    color: grey;
+    font-size: medium;
+}
+
+.info {
+    font-size: large;
+    color: #202020;
+}
+
+.video {
+    border: 2px solid red;
+    width: 800px;
+    height: 400px;
+}
