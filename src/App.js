@@ -6,6 +6,7 @@ import Movies from "./Content/Movies/Movies";
 import TvShows from "./Content/TvShows/TvShows";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import FilmInfo from "./Content/Movies/FilmInfo/FilmInfo";
+import ShowInfo from "./Content/TvShows/ShowInfo/ShowInfo";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
                             <Route path='/movies' element={<Movies />} />
                             <Route path='/tvShows' element={<TvShows />} />
                             <Route path='/movies/:film' element={<FilmInfo />} />
-                            {/*<Route path='/movies/film:id' element={<FilmInfo />} />*/}
+                            <Route path='/tvShows/:show' element={<ShowInfo />} />
                         </Routes>
                     </div>
                 <div>

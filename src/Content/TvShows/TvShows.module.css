@@ -1,19 +1,18 @@
 .jpeg {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center bottom;
+    background-position: center;
     height: 300px;
 }
 
-.containerMovies {
+.containerTvShows {
     display: flex;
     flex-direction: column;
     max-width: 1200px;
     margin: auto;
-
 }
 
-.contentMovies {
+.contentTvShows {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,21 +21,25 @@
     max-width: 1200px;
 }
 
+h2 {
+    display: flex;
+}
+
 .link {
     text-decoration: none;
 }
 
-.film {
+.show {
     max-width: 190px;
     color: #202020;
 }
 
-.film:hover {
+.show:hover {
     cursor: pointer;
     color: red;
 }
 
-.backFilm {
+.backShow {
     background-color: red;
     height: 284px;
     width: 190px;
@@ -76,10 +79,14 @@
     color: grey;
 }
 
-
 @media (max-width: 1200px) {
     .jpeg {
         background-size: cover;
+    }
+
+    h2 {
+        padding-top: 30px;
+        margin: auto;
     }
 }
 

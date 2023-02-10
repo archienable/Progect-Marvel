@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import style from './FilmInfo.module.css'
 import {useParams} from "react-router-dom";
+import style from "../../TvShows/ShowInfo/ShowInfo.module.css";
 
-const FilmInfo = () => {
+const ShowInfo = () => {
 
-    const {film} = useParams()
+    const {show} = useParams()
 
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetchMcu()
-    },[])
+        fetchMcu ()
+    }, [])
+
 
     async function fetchMcu () {
-        let requestApi = await fetch(`https://mcuapi.herokuapp.com/api/v1/movies/${film}`)
+        let requestApi = await fetch(`https://mcuapi.herokuapp.com/api/v1/tvshows/${show}`)
         let requestUser = await requestApi.json()
         setData(requestUser)
         setLoading(false)
@@ -24,14 +25,13 @@ const FilmInfo = () => {
         return <div>loading</div>
     }
 
-    let trailerUrl = data.trailer_url
-    if (trailerUrl && trailerUrl.includes('https://youtu.be')) {
-        trailerUrl = trailerUrl.replace('https://youtu.be', 'https://www.youtube.com/embed')
-    }
+
+
+    console.log('SHOW', data)
 
     return (
-        <div className={style.containerFilm}>
-            <div className={style.contentFilm}>
+        <div className={style.containerShow}>
+            <div className={style.contentShow}>
                 <div className={style.backImg}>
                     <div className={style.img} style={{backgroundImage: `url(${data.cover_url})`}}></div>
                 </div>
@@ -47,13 +47,9 @@ const FilmInfo = () => {
                     <div className={style.title}>Overview: <span className={style.info}>{data.overview}</span></div>
                 </div>
             </div>
-            {trailerUrl ?
-                <iframe className={style.video} width="800" height="400" src={trailerUrl} />
-                :
-                <div>movie expected</div>
-            }
+            <iframe className={style.video} width="800" height="400" src={data.trailer_url} />
         </div>
     );
-}
+};
 
-export default FilmInfo;
+export default ShowInfo;
