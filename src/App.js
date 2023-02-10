@@ -7,6 +7,7 @@ import TvShows from "./Content/TvShows/TvShows";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import FilmInfo from "./Content/Movies/FilmInfo/FilmInfo";
 import ShowInfo from "./Content/TvShows/ShowInfo/ShowInfo";
+import Footer from "./Footer/Footer";
 
 function App() {
 
@@ -23,9 +24,7 @@ function App() {
                             <Route path='/tvShows/:show' element={<ShowInfo />} />
                         </Routes>
                     </div>
-                <div>
-                    FOOTER
-                </div>
+                <Footer />
             </div>
         </BrowserRouter>
     );

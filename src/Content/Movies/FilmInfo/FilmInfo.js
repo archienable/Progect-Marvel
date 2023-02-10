@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import style from './FilmInfo.module.css'
 import {useParams} from "react-router-dom";
+import backLogo from "../../../picture/Marvel_Logo.png";
 
 const FilmInfo = () => {
 
@@ -32,7 +33,7 @@ const FilmInfo = () => {
     return (
         <div className={style.containerFilm}>
             <div className={style.contentFilm}>
-                <div className={style.backImg}>
+                <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
                     <div className={style.img} style={{backgroundImage: `url(${data.cover_url})`}}></div>
                 </div>
                 <div className={style.containerInfo}>

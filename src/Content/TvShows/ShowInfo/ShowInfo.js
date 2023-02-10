@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import style from "../../TvShows/ShowInfo/ShowInfo.module.css";
+import backLogo from "../../../picture/Marvel_Logo.png";
 
 const ShowInfo = () => {
 
@@ -25,14 +26,17 @@ const ShowInfo = () => {
         return <div>loading</div>
     }
 
-
+    let trailerUrl = data.trailer_url
+    if (trailerUrl && trailerUrl.includes('https://youtu.be')) {
+        trailerUrl = trailerUrl.replace('https://youtu.be', 'https://www.youtube.com/embed')
+    }
 
     console.log('SHOW', data)
 
     return (
         <div className={style.containerShow}>
             <div className={style.contentShow}>
-                <div className={style.backImg}>
+                <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
                     <div className={style.img} style={{backgroundImage: `url(${data.cover_url})`}}></div>
                 </div>
                 <div className={style.containerInfo}>
@@ -47,7 +51,9 @@ const ShowInfo = () => {
                     <div className={style.title}>Overview: <span className={style.info}>{data.overview}</span></div>
                 </div>
             </div>
-            <iframe className={style.video} width="800" height="400" src={data.trailer_url} />
+            <div className={style.backVideo} style={{backgroundImage: `url(${backLogo})`}}>
+                <iframe className={style.video} src={trailerUrl} />
+            </div>
         </div>
     );
 };

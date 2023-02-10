@@ -19,8 +19,6 @@ const TvShows = () => {
         setData(requestUser.data)
     }
 
-    console.log('SHOWS', data)
-
     return (
         <div>
             <div className={style.jpeg} style={{backgroundImage: `url(https://cdn.marvel.com/content/1x/iamgroot_lob_mas_dsk_04.jpg)`}}></div>
