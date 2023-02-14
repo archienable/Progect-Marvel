@@ -2,20 +2,31 @@ import React, {useEffect, useState} from 'react';
 import style from './Movies.module.css'
 import backLogo from '../../picture/Marvel_Logo.png'
 import moment from 'moment';
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import ReactPaginate from 'react-paginate';
 
-
+const LIMIT = 12
 
 const Movies = () => {
 
     const [data, setData] = useState([])
+    const [totalPages, setTotalPages] = useState(1)
+    const navigate = useNavigate();
+    let [searchParams] = useSearchParams();
+
+    const currentPage = searchParams.get("page") || 1
+
+
 
     useEffect(() => {
-        fetch(`https://mcuapi.herokuapp.com/api/v1/movies`)
+        setData([])
+        fetch(`https://mcuapi.herokuapp.com/api/v1/movies?limit=${LIMIT}&page=${currentPage}`)
         .then(res => res.json())
-        .then(data => setData(data.data))
-
-    },[])
+        .then(data => {
+            setData(data.data)
+            setTotalPages(data.total / LIMIT)
+        })
+    },[currentPage])
 
     return (
         <div>
@@ -39,8 +50,19 @@ const Movies = () => {
                                 </div>
                             </Link>
                     )
-                    }).reverse()}
+                    })}
                 </div>
+                    <ReactPaginate
+                        // nextLabel="next >"
+                        onPageChange={({ selected }) => {
+                            navigate(`/movies?page=${selected + 1}`);
+                        }}
+                        forcePage={Number(currentPage) - 1}
+                        pageRangeDisplayed={2}
+                        pageCount={totalPages}
+                        previousLabel="Prev"
+                        // renderOnZeroPageCount={null}
+                    />
             </div>
         </div>
     );

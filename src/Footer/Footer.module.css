@@ -3,22 +3,79 @@
     height: 300px;
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .svg {
-    width: 5%;
+    width: 67px;
+    height: 100px;
+    flex: 0 0 67px;
 }
 
 .contentFooter {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: grey;
-    width: 80%;
+    width: 70%;
+    gap: 50px;
+}
+
+.blocks {
+    display: flex;
+    gap: 100px;
 }
 
 .block {
+    color: grey;
     display: flex;
     flex-direction: column;
     margin: auto;
+    gap: 10px;
 }
+
+.block div:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.follow {
+    margin: auto;
+    gap: 10px;
+}
+
+.aps{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+svg:hover {
+    fill: white;
+}
+
+@media (max-width: 414px) {
+    .containerFooter {
+        display: flex;
+        max-width: 414px;
+    }
+
+    .contentFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .blocks {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .aps {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

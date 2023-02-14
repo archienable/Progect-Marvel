@@ -1,0 +1,67 @@
+.contentRelated {
+    gap: 20px;
+    overflow: hidden;
+}
+
+.relatedFilm{
+    max-width: 220px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.backImg {
+    background-color: red;
+    width: 220px;
+    height: 320px;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+.img{
+    width: 220px;
+    height: 320px;
+    background-size: cover;
+    box-shadow: 0 0 10px #202020;
+}
+
+.title {
+    padding-top: 10px;
+    font-size: medium;
+    color: #202020;
+}
+
+.swiperButtonNext {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+}
+
+.swiperButtonPrev {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+@media (max-width: 414px) {
+    .containerRelated {
+        max-width: 386px;
+    }
+
+    .relatedFilm {
+        max-width: 120px;
+    }
+
+    .backImg {
+        width: 100px;
+        height: 150px;
+    }
+
+    .img {
+        width: 100px;
+        height: 150px;
+    }
+
+}

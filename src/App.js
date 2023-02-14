@@ -15,15 +15,15 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Header />
-                    <div className='Container'>
-                        <Routes>
-                            <Route path='/' element={<HomePage />} />
-                            <Route path='/movies' element={<Movies />} />
-                            <Route path='/tvShows' element={<TvShows />} />
-                            <Route path='/movies/:film' element={<FilmInfo />} />
-                            <Route path='/tvShows/:show' element={<ShowInfo />} />
-                        </Routes>
-                    </div>
+                <div className='Container'>
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/movies' element={<Movies />} />
+                        <Route path='/tvShows' element={<TvShows />} />
+                        <Route path='/movies/:film' element={<FilmInfo />} />
+                        <Route path='/tvShows/:show' element={<ShowInfo />} />
+                    </Routes>
+                </div>
                 <Footer />
             </div>
         </BrowserRouter>

@@ -10,7 +10,7 @@
     flex-direction: column;
     max-width: 1200px;
     margin: auto;
-
+    align-items: center;
 }
 
 .contentMovies {
@@ -74,6 +74,30 @@
 .date {
     font-size: small;
     color: grey;
+}
+
+ul {
+    margin-top: 50px;
+    max-width: 400px;
+    display: flex;
+    gap: 20px;
+}
+
+li {
+    list-style-type: none !important;
+}
+
+li a {
+    border: 2px solid black;
+    border-radius: 2px;
+    color: #202020;
+    padding: 10px 10px;
+}
+
+li a:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
 
 

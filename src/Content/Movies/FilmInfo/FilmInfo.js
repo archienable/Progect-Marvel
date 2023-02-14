@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './FilmInfo.module.css'
 import {useParams} from "react-router-dom";
 import backLogo from "../../../picture/Marvel_Logo.png";
+import RelatedMovies from "../../RelatedMovies/RelatedMovies";
 
 const FilmInfo = () => {
 
@@ -20,6 +21,7 @@ const FilmInfo = () => {
         setData(requestUser)
         setLoading(false)
     }
+
 
     if (loading) {
         return <div>loading</div>
@@ -53,6 +55,7 @@ const FilmInfo = () => {
                 :
                 <div>movie expected</div>
             }
+            <RelatedMovies relatedFilms={data.related_movies}/>
         </div>
     );
 }
