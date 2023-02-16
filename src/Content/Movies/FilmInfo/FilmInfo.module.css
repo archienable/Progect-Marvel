@@ -1,6 +1,7 @@
 .containerFilm {
     max-width: 1200px;
     margin: auto;
+    position: relative;
 }
 
 .contentFilm {
@@ -12,7 +13,7 @@
 .backImg {
     background-color: red;
     width: 300px;
-    height: 400px;
+    height: 450px;
     background-position: center;
     background-size: 50%;
     background-repeat: no-repeat;
@@ -20,9 +21,29 @@
 
 .img{
     width: 300px;
-    height: 400px;
+    height: 450px;
     background-size: cover;
     box-shadow: 0 0 10px #202020;
+}
+
+.favorite {
+    border: 2px solid #202020;
+    border-radius: 5px;
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.favorite:hover {
+    /*background-color: red;*/
+    cursor: pointer;
+}
+
+.favSuccess {
+    background-color: red;
 }
 
 .title {

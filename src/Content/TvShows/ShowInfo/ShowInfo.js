@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import style from "../../TvShows/ShowInfo/ShowInfo.module.css";
 import backLogo from "../../../picture/Marvel_Logo.png";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const ShowInfo = () => {
 
@@ -22,8 +23,21 @@ const ShowInfo = () => {
         setLoading(false)
     }
 
+    const override = {
+        display: "block",
+        speedMultiplier: 1,
+        margin: "0 auto",
+    };
+
+
     if (loading) {
-        return <div>loading</div>
+        return <PacmanLoader
+            color="red"
+            loading
+            cssOverride={override}
+            size={50}
+            speedMultiplier={2}
+        />
     }
 
     let trailerUrl = data.trailer_url

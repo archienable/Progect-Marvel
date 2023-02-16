@@ -3,7 +3,7 @@
     overflow: hidden;
 }
 
-.relatedFilm{
+.relatedFilm {
     max-width: 220px;
 }
 
@@ -25,6 +25,12 @@
     height: 320px;
     background-size: cover;
     box-shadow: 0 0 10px #202020;
+    transition: 0.1s linear;
+    background-repeat: no-repeat;
+}
+
+.img:hover {
+    transform: translateY(-20px);
 }
 
 .title {

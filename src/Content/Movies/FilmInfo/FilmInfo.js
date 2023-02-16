@@ -3,6 +3,12 @@ import style from './FilmInfo.module.css'
 import {useParams} from "react-router-dom";
 import backLogo from "../../../picture/Marvel_Logo.png";
 import RelatedMovies from "../../RelatedMovies/RelatedMovies";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import Favorites from "../../Favorites/Favorites";
+
+// function OnClick() {
+//     return null;
+// }
 
 const FilmInfo = () => {
 
@@ -10,6 +16,8 @@ const FilmInfo = () => {
 
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
+    const [newData, setNewData] = useState(JSON.parse(localStorage.getItem('Favorites')) || [])
+
 
     useEffect(() => {
         fetchMcu()
@@ -22,15 +30,42 @@ const FilmInfo = () => {
         setLoading(false)
     }
 
+    let styleFavorite = `${style.favorite} `
+    const result = newData.find(film => {
+        return film.id === data.id
+    })
+
+    if (result) {
+        styleFavorite += style.favSuccess
+    }
+
+    const favorites = () => {
+        const upData =  [...newData, data]
+        localStorage.setItem('Favorites', JSON.stringify(upData))
+        setNewData(upData)
+    }
+
+    const override = {
+        display: "block",
+        speedMultiplier: 1,
+        margin: "0 auto",
+    };
 
     if (loading) {
-        return <div>loading</div>
+        return <PacmanLoader
+            color="red"
+            loading
+            cssOverride={override}
+            size={50}
+            speedMultiplier={2}
+        />
     }
 
     let trailerUrl = data.trailer_url
     if (trailerUrl && trailerUrl.includes('https://youtu.be')) {
         trailerUrl = trailerUrl.replace('https://youtu.be', 'https://www.youtube.com/embed')
     }
+
 
     return (
         <div className={style.containerFilm}>
@@ -40,6 +75,7 @@ const FilmInfo = () => {
                 </div>
                 <div className={style.containerInfo}>
                     <div className={style.title}>Title: <span className={style.info}>{data.title}</span></div>
+                    <div className={styleFavorite} onClick={favorites}>Favorites</div>
                     <div className={style.title}>Release date: <span className={style.info}>{data.release_date}</span> </div>
                     <div className={style.title}>Duration: <span className={style.info}>{data.duration} min</span> </div>
                     <div className={style.title}>Directed by: <span className={style.info}>{data.directed_by}</span></div>

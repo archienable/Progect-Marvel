@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import style from './Movies.module.css'
 import backLogo from '../../picture/Marvel_Logo.png'
 import moment from 'moment';
-import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {Link, useNavigate, useSearchParams} from "react-router-dom";
 import ReactPaginate from 'react-paginate';
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const LIMIT = 12
 
@@ -13,6 +14,7 @@ const Movies = () => {
     const [totalPages, setTotalPages] = useState(1)
     const navigate = useNavigate();
     let [searchParams] = useSearchParams();
+    const [loading, setLoading] = useState(true)
 
     const currentPage = searchParams.get("page") || 1
 
@@ -24,9 +26,27 @@ const Movies = () => {
         .then(res => res.json())
         .then(data => {
             setData(data.data)
+            console.log(data.total)
             setTotalPages(data.total / LIMIT)
+            setLoading(false)
         })
     },[currentPage])
+
+    const override = {
+        display: "block",
+        speedMultiplier: 1,
+        margin: "0 auto",
+    };
+
+    if (loading) {
+        return <PacmanLoader
+            color="red"
+            loading
+            cssOverride={override}
+            size={50}
+            speedMultiplier={2}
+        />
+    }
 
     return (
         <div>

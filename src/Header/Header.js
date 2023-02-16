@@ -15,6 +15,9 @@ const Header = () => {
                 <div className={style.item}>
                     <NavLink to='/tvShows' className={style.tvShows}>TV SHOWS</NavLink>
                 </div>
+                <div className={style.item}>
+                    <NavLink to='/favorites' className={style.favorites}>FAVORITES</NavLink>
+                </div>
             </nav>
         </div>
     );

@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import FilmInfo from "./Content/Movies/FilmInfo/FilmInfo";
 import ShowInfo from "./Content/TvShows/ShowInfo/ShowInfo";
 import Footer from "./Footer/Footer";
+import Favorites from "./Content/Favorites/Favorites";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                         <Route path='/' element={<HomePage />} />
                         <Route path='/movies' element={<Movies />} />
                         <Route path='/tvShows' element={<TvShows />} />
+                        <Route path='/favorites' element={<Favorites />} />
                         <Route path='/movies/:film' element={<FilmInfo />} />
                         <Route path='/tvShows/:show' element={<ShowInfo />} />
                     </Routes>

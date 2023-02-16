@@ -2,21 +2,48 @@ import React, {useEffect, useState} from 'react';
 import style from './TvShows.module.css'
 import backLogo from "../../picture/Marvel_Logo.png";
 import moment from "moment/moment";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useSearchParams} from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
+const LIMIT = 6
 
 const TvShows = () => {
 
     const [data, setData] = useState([])
+    const [totalPages, setTotalPages] = useState(1)
+    const navigate = useNavigate();
+    let [searchParams] = useSearchParams();
+    const [loading, setLoading] = useState(true)
+
+    const currentPage = searchParams.get("page") || 1
 
     useEffect(() => {
         tvShowsApi()
-    }, [])
+    }, [currentPage])
 
     async function tvShowsApi() {
-        let requestApi = await fetch(`https://mcuapi.herokuapp.com/api/v1/tvshows`)
+        let requestApi = await fetch(`https://mcuapi.herokuapp.com/api/v1/tvshows?limit=${LIMIT}&page=${currentPage}`)
         let requestUser = await requestApi.json()
         setData(requestUser.data)
+        setTotalPages(requestUser.total / LIMIT)
+        setLoading(false)
+    }
+
+    const override = {
+        display: "block",
+        speedMultiplier: 1,
+        margin: "0 auto",
+    };
+
+    if (loading) {
+        return <PacmanLoader
+            color="red"
+            loading
+            cssOverride={override}
+            size={50}
+            speedMultiplier={2}
+        />
     }
 
     return (
@@ -43,6 +70,18 @@ const TvShows = () => {
                         )
                     })}
                 </div>
+                    <ReactPaginate
+                        // nextLabel="next >"
+                        onPageChange={({ selected }) => {
+                            navigate(`/tvShows?page=${selected + 1}`);
+                        }}
+                        forcePage={Number(currentPage) - 1}
+                        pageRangeDisplayed={2}
+                        pageCount={totalPages}
+
+                        previousLabel="Prev"
+                        // renderOnZeroPageCount={null}
+                    />
             </div>
         </div>
     );

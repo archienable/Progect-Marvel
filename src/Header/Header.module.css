@@ -29,3 +29,12 @@
     color: red;
 }
 
+.favorites {
+    color: white;
+    text-decoration: none;
+}
+
+.favorites:hover {
+    color: red;
+}
+
