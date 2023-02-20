@@ -1,29 +1,36 @@
-.jpeg {
+.pictures {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 300px;
 }
 
-.containerTvShows {
-    display: flex;
-    flex-direction: column;
+.containerFilm {
     max-width: 1200px;
     margin: auto;
-    align-items: center;
+}
+
+.containerTvShows {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .contentTvShows {
-    display: flex;
+    max-width: 1200px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px 10px;
-    margin-top: 30px;
-    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
 }
 
-h2 {
-    display: flex;
+.contentFilms {
+    max-width: 1200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 10px;
+    margin: auto;
+    overflow: hidden;
 }
 
 .link {
@@ -35,12 +42,29 @@ h2 {
     color: #202020;
 }
 
+.film {
+    max-width: 190px;
+    color: #202020;
+}
+
 .show:hover {
     cursor: pointer;
     color: red;
 }
 
+.film:hover {
+    cursor: pointer;
+    color: red;
+}
+
 .backShow {
+    background-color: red;
+    height: 284px;
+    width: 190px;
+    box-shadow: 0 0 10px #202020;
+}
+
+.backFilm {
     background-color: red;
     height: 284px;
     width: 190px;
@@ -74,6 +98,10 @@ h2 {
     position: relative;
 }
 
+.infoFilm {
+    position: relative;
+}
+
 .favorite {
     width: 20px;
     position: absolute;
@@ -96,58 +124,4 @@ h2 {
 .date {
     font-size: small;
     color: grey;
-}
-
-ul {
-    margin-top: 50px;
-    max-width: 400px;
-    display: flex;
-    gap: 20px;
-}
-
-li {
-    list-style-type: none !important;
-}
-
-li a {
-    border: 2px solid black;
-    border-radius: 2px;
-    color: #202020;
-    padding: 10px 10px;
-}
-
-li a:hover {
-    background-color: red;
-    color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 1200px) {
-    .jpeg {
-        background-size: cover;
-    }
-
-    h2 {
-        padding-top: 30px;
-        margin: auto;
-    }
-}
-
-@media (max-width: 806px) {
-    .jpeg {
-        background-position: center top;
-        background-size: 100%;
-    }
-}
-
-@media (max-width: 650px) {
-    .containerTvShows {
-        margin-top: -70px;
-    }
-}
-
-@media (max-width: 500px) {
-    .containerTvShows {
-        margin-top: -150px;
-    }
 }

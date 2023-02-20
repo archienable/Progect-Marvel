@@ -26,14 +26,9 @@ const FilmInfo = () => {
         setLoading(false)
     }
 
-    // let styleFavorite = `${style.favorite} `
     const result = newData.find(film => {
         return film.id === data.id
     })
-
-    // if (result) {
-    //     styleFavorite += style.svg
-    // }
 
     const favorites = () => {
         if (result) {
@@ -68,7 +63,6 @@ const FilmInfo = () => {
         trailerUrl = trailerUrl.replace('https://youtu.be', 'https://www.youtube.com/embed')
     }
 
-
     return (
         <div className={style.containerFilm}>
             <div className={style.contentFilm}>
@@ -76,7 +70,7 @@ const FilmInfo = () => {
                     <div className={style.img} style={{backgroundImage: `url(${data.cover_url})`}}></div>
                 </div>
                 <div className={style.containerInfo}>
-                    <div className={style.title}>Title: <span className={style.info}>{data.title}</span></div>
+                    <div className={style.title}>Title: <span className={style.titleName}>{data.title}</span></div>
                     <div className={style.favorite} onClick={favorites}>
                         <svg className={style.svg} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 100 100" width="50px" height="50px">
                             <path d="M24.501,98.001c-1.021,0-2.042-0.245-2.952-0.709C19.361,96.179,18,93.959,18,91.5v-75	C18,10.701,22.701,6,28.5,6h47C81.299,6,86,10.701,86,16.5v75.501c0,3.314-2.686,6-5.999,6h0c-1.299,0-2.562-0.421-3.601-1.2L50,77	l3.011,1.949L28.322,96.757C27.215,97.567,25.889,98.001,24.501,98.001z" opacity=".35"/>
@@ -86,14 +80,16 @@ const FilmInfo = () => {
                         </svg>
                         Favorites
                     </div>
-                    <div className={style.title}>Release date: <span className={style.info}>{data.release_date}</span> </div>
-                    <div className={style.title}>Duration: <span className={style.info}>{data.duration} min</span> </div>
-                    <div className={style.title}>Directed by: <span className={style.info}>{data.directed_by}</span></div>
-                    <div className={style.title}>Phase: <span className={style.info}>{data.phase}</span></div>
-                    <div className={style.title}>Saga: <span className={style.info}>{data.saga}</span></div>
-                    <div className={style.title}>Chronology: <span className={style.info}>{data.chronology}</span></div>
-                    <div className={style.title}>Post credit scenes: <span className={style.info}>{data.post_credit_scenes}</span></div>
-                    <div className={style.title}>Overview: <span className={style.info}>{data.overview}</span></div>
+                    <div className={style.infoFilm}>
+                        <div className={style.title}>Release date: <span className={style.titleName}>{data.release_date}</span> </div>
+                        <div className={style.title}>Duration: <span className={style.titleName}>{data.duration} min</span> </div>
+                        <div className={style.title}>Directed by: <span className={style.titleName}>{data.directed_by}</span></div>
+                        <div className={style.title}>Phase: <span className={style.titleName}>{data.phase}</span></div>
+                        <div className={style.title}>Saga: <span className={style.titleName}>{data.saga}</span></div>
+                        <div className={style.title}>Chronology: <span className={style.titleName}>{data.chronology}</span></div>
+                        <div className={style.title}>Post credit scenes: <span className={style.titleName}>{data.post_credit_scenes}</span></div>
+                        <div className={style.title}>Overview: <span className={style.titleName}>{data.overview}</span></div>
+                    </div>
                 </div>
             </div>
             {trailerUrl ?

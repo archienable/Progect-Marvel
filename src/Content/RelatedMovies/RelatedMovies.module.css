@@ -51,23 +51,27 @@
     background-color: red;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 1024px) {
     .containerRelated {
-        max-width: 386px;
+        max-width: 1024px;
     }
 
     .relatedFilm {
         max-width: 120px;
     }
 
+    .link {
+        margin: 0;
+    }
+
     .backImg {
-        width: 100px;
-        height: 150px;
+        width: 120px;
+        height: 180px;
     }
 
     .img {
-        width: 100px;
-        height: 150px;
+        width: 100%;
+        height: 100%;
     }
 
 }

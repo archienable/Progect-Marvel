@@ -15,11 +15,9 @@ const Movies = () => {
     const navigate = useNavigate();
     let [searchParams] = useSearchParams();
     const [loading, setLoading] = useState(true)
-    const [newData, setNewData] = useState(JSON.parse(localStorage.getItem('Favorites')) || [])
+    const [newData, setNewData] = useState(JSON.parse(localStorage.getItem('FavoritesMovies')) || [])
 
     const currentPage = searchParams.get("page") || 1
-
-
 
     useEffect(() => {
         setData([])
@@ -31,23 +29,6 @@ const Movies = () => {
             setLoading(false)
         })
     },[currentPage])
-
-    // const result = newData.find(favoriteFilm => {
-    //     // console.log('ARTEM',data)
-    //     return favoriteFilm.id === oneDataFilm.id
-    // })
-    //
-    // const favorites = (selectedFilm) => {
-    //     if (result) {
-    //         const upData =  [...newData].filter(film => film.id !== selectedFilm.id)
-    //         localStorage.setItem('Favorites', JSON.stringify(upData))
-    //         setNewData(upData)
-    //     } else {
-    //         const upData =  [...newData, selectedFilm]
-    //         localStorage.setItem('Favorites', JSON.stringify(upData))
-    //         setNewData(upData)
-    //     }
-    // }
 
     const override = {
         display: "block",
@@ -74,18 +55,17 @@ const Movies = () => {
                     {data.map( film => {
 
                         const result = newData.find(favoriteFilm => {
-                            // console.log('ARTEM',data)
                             return favoriteFilm.id === film.id
                         })
 
                         const favorites = (selectedFilm) => {
                             if (result) {
                                 const upData =  [...newData].filter(film => film.id !== selectedFilm.id)
-                                localStorage.setItem('Favorites', JSON.stringify(upData))
+                                localStorage.setItem('FavoritesMovies', JSON.stringify(upData))
                                 setNewData(upData)
                             } else {
                                 const upData =  [...newData, selectedFilm]
-                                localStorage.setItem('Favorites', JSON.stringify(upData))
+                                localStorage.setItem('FavoritesMovies', JSON.stringify(upData))
                                 setNewData(upData)
                             }
                         }

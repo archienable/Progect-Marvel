@@ -2,6 +2,8 @@
     max-width: 1200px;
     margin: auto;
     position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .contentFilm {
@@ -26,9 +28,11 @@
     box-shadow: 0 0 10px #202020;
 }
 
+.containerInfo {
+
+}
+
 .favorite {
-    /*border: 2px solid #202020;*/
-    /*border-radius: 5px;*/
     width: 100px;
     position: absolute;
     top: 10px;
@@ -38,15 +42,9 @@
     align-items: center;
 }
 
-
-
 .svg:hover {
     cursor: pointer;
 }
-
-/*.favSuccess {*/
-/*    background-color: red;*/
-/*}*/
 
 .title {
     color: grey;
@@ -54,7 +52,7 @@
     margin-top: 10px;
 }
 
-.info {
+.titleName {
     font-size: large;
     color: #202020;
 }
@@ -66,15 +64,13 @@
     margin-top: 50px;
 }
 
-@media (max-width: 414px) {
-    .containerFilm{
-        max-width: 386px;
+@media (max-width: 1024px) {
+    .containerFilm {
+        max-width: 1024px;
     }
 
     .contentFilm {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 400px;
     }
 
     .backImg {
@@ -85,19 +81,31 @@
     .img{
         width: 200px;
         height: 300px;
+        background-position: center;
     }
 
     .containerInfo {
-        width: 386px;
+        width: 100%;
     }
 
-    .backVideo {
-        width: 386px;
-        height: 300px;
+    .infoFilm {
+        width: 100%;
+        height: 400px;
+    }
+
+    .title {
+        font-size: smaller;
+    }
+
+    .titleName {
+        font-size: medium;
     }
 
     .video {
-        width: 386px;
-        height: 300px;
+        width: 100%;
+        height: 400px;
+        margin-top: 50px;
     }
+
 }
+

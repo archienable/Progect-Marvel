@@ -5,8 +5,14 @@
 }
 
 .contentFilm {
-    display: flex;
-    gap: 20px;
+    width: 1200px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.contentShow {
+    width: 1200px;
+    overflow: hidden;
 }
 
 .link {
@@ -18,12 +24,29 @@
     color: #202020;
 }
 
+.show {
+    max-width: 190px;
+    color: #202020;
+}
+
+.show:hover {
+    cursor: pointer;
+    color: red;
+}
+
 .film:hover {
     cursor: pointer;
     color: red;
 }
 
 .backFilm {
+    background-color: red;
+    width: 190px;
+    height: 284px;
+    box-shadow: 0 0 10px #202020;
+}
+
+.backShow {
     background-color: red;
     width: 190px;
     height: 284px;
@@ -51,6 +74,24 @@
 
 .img:hover {
     transform: translateY(-15px);
+}
+
+.infoShow {
+    position: relative;
+}
+
+.infoFilm {
+    position: relative;
+}
+
+.favorite {
+    width: 20px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
