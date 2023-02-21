@@ -95,6 +95,7 @@
 }
 
 .title {
+    max-width: 150px;
     padding-top: 10px;
     font-size: medium;
 }

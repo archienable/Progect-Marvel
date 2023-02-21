@@ -12,12 +12,12 @@ const FilmInfo = () => {
 
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
-    const [newData, setNewData] = useState(JSON.parse(localStorage.getItem('Favorites')) || [])
+    const [newData, setNewData] = useState(JSON.parse(localStorage.getItem('FavoritesMovies')) || [])
 
 
     useEffect(() => {
         fetchMcu()
-    },[])
+    },[film])
 
     async function fetchMcu () {
         let requestApi = await fetch(`https://mcuapi.herokuapp.com/api/v1/movies/${film}`)
@@ -33,11 +33,11 @@ const FilmInfo = () => {
     const favorites = () => {
         if (result) {
             const upData =  [...newData].filter(film => film.id !== data.id)
-            localStorage.setItem('Favorites', JSON.stringify(upData))
+            localStorage.setItem('FavoritesMovies', JSON.stringify(upData))
             setNewData(upData)
         } else {
             const upData =  [...newData, data]
-            localStorage.setItem('Favorites', JSON.stringify(upData))
+            localStorage.setItem('FavoritesMovies', JSON.stringify(upData))
             setNewData(upData)
         }
     }

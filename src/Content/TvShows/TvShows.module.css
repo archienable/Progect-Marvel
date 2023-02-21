@@ -122,6 +122,10 @@ li a:hover {
     cursor: pointer;
 }
 
+.activeLinkPageRed {
+    background-color: red;
+}
+
 @media (max-width: 1200px) {
     .jpeg {
         background-size: cover;

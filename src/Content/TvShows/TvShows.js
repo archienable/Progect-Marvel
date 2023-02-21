@@ -106,7 +106,7 @@ const TvShows = () => {
                     forcePage={Number(currentPage) - 1}
                     pageRangeDisplayed={2}
                     pageCount={totalPages}
-
+                    activeLinkClassName={style.activeLinkPageRed}
                     previousLabel="Prev"
                     // renderOnZeroPageCount={null}
                 />

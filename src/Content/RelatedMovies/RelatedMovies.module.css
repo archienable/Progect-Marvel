@@ -1,6 +1,7 @@
 .contentRelated {
     gap: 20px;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .relatedFilm {
@@ -37,18 +38,6 @@
     padding-top: 10px;
     font-size: medium;
     color: #202020;
-}
-
-.swiperButtonNext {
-    width: 30px;
-    height: 30px;
-    background-color: blue;
-}
-
-.swiperButtonPrev {
-    width: 30px;
-    height: 30px;
-    background-color: red;
 }
 
 @media (max-width: 1024px) {
