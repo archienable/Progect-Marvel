@@ -72,7 +72,6 @@ const Movies = () => {
 
                         return (
                             <Link className={style.link} to={`/movies/${film.id}`} >
-                        {/*<Link className={style.link} to={`/movies/${film.id}`}>*/}
                                 <div className={style.film} >
                                     <div className={style.backFilm}>
                                         <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>

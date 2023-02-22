@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "./Header/Header";
 import './App.css'
 import HomePage from "./Content/HomePage/HomePage";
@@ -11,6 +11,7 @@ import Footer from "./Footer/Footer";
 import Favorites from "./Content/Favorites/Favorites";
 
 function App() {
+
 
     return (
         <BrowserRouter>

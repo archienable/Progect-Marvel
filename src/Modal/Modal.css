@@ -1,0 +1,55 @@
+.modal {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    z-index: 9999;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modalContent {
+    padding: 20px;
+    border-radius: 12px;
+    /*background-color: white;*/
+    height: 400px;
+    width: 800px;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    opacity: 1;
+}
+
+.modalContent.active {
+    transform: scale(1);
+}
+
+.dataContent {
+    width: 760px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.selectedTitle {
+    font-size: 20px;
+    color: white;
+    width: 300px;
+}
+
+.selectedTitle:hover {
+    cursor: pointer;
+    color: red;
+}
+
+a {
+    text-decoration: none;
+}
