@@ -10,10 +10,19 @@
     margin: 0;
 }
 
+.contentFilm :global(.swiper-wrapper) {
+    padding-top: 20px;
+}
+
 .contentShow {
     width: 1200px;
     overflow: hidden;
 }
+
+.contentShow :global(.swiper-wrapper) {
+    padding-top: 20px;
+}
+
 
 .link {
     text-decoration: none;

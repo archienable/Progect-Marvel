@@ -33,6 +33,18 @@
     overflow: hidden;
 }
 
+/*.contentFilms > div > div { такой же как :global стиль ниже*/
+/*    padding-top: 20px;*/
+/*}*/
+
+.contentFilms :global(.swiper-wrapper) {
+    padding-top: 20px;
+}
+
+.contentTvShows :global(.swiper-wrapper){
+    padding-top: 20px;
+}
+
 .link {
     text-decoration: none;
 }

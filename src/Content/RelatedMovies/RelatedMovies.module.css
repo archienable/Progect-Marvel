@@ -4,6 +4,10 @@
     padding-bottom: 20px;
 }
 
+.contentRelated :global(.swiper-wrapper) {
+    padding-top: 20px;
+}
+
 .relatedFilm {
     max-width: 220px;
 }

@@ -26,6 +26,8 @@
     transform: scale(0.5);
     transition: 0.4s all;
     opacity: 1;
+    overflow: hidden;
+    align-items: center;
 }
 
 .modalContent.active {
@@ -36,7 +38,21 @@
     width: 760px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: end;
+    align-items: center;
+}
+
+.selectedFilm {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.svgFilm {
+    width: 42px;
+    height: 42px;
 }
 
 .selectedTitle {

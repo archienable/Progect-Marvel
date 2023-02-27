@@ -13,7 +13,7 @@ const RelatedMovies = ({relatedFilms}) => {
         slidesPerView: 5,
         spaceBetween: 10,
         slidesPerGroup: 3,
-        navigation: true,
+        navigation: relatedFilms.length > 5,
         modules: [Pagination, Navigation],
     }
 
@@ -24,8 +24,8 @@ const RelatedMovies = ({relatedFilms}) => {
                 <Swiper {...params}>
                     {relatedFilms.map( film => {
                         return (
-                            <SwiperSlide>
-                                <Link className={style.link} to={`/movies/${film.id}`}>
+                            <SwiperSlide key={`relatedMovies-list-item-${film.id}`}>
+                                <Link className={style.link} to={`/movies/${film.id}`} >
                                     <div className={style.relatedFilm}>
                                         <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
                                             <div className={style.img} style={{backgroundImage: `url(${film.cover_url})`}}></div>
@@ -37,8 +37,7 @@ const RelatedMovies = ({relatedFilms}) => {
                         )
                     })}
                 </Swiper>
-                <div className={style.swiperButtons}>
-                </div>
+                <div className={style.swiperButtons}></div>
             </div>
         </div>
     );

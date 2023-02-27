@@ -89,6 +89,7 @@ h2 {
 }
 
 .title {
+    width: 150px;
     padding-top: 10px;
     font-size: medium;
 }

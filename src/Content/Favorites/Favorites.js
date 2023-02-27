@@ -16,8 +16,7 @@ const Favorites = () => {
         slidesPerView: 6,
         spaceBetween: 10,
         slidesPerGroup: 3,
-        navigation: true,
-        modules: [Pagination, Navigation],
+        modules: [Pagination, Navigation]
     }
 
     return (
@@ -26,7 +25,7 @@ const Favorites = () => {
                 <>
                     <h2>Favorites Movies</h2>
                     <div className={style.contentFilm}>
-                        <Swiper {...params}>
+                        <Swiper {...params} navigation={newDataMovies.length > 6} >
                             {newDataMovies.map( film => {
                                 const result = newDataMovies.find(favoriteFilm => {
                                     return favoriteFilm.id === film.id
@@ -44,8 +43,8 @@ const Favorites = () => {
                                     }
                                 }
                                 return (
-                                    <SwiperSlide>
-                                        <Link className={style.link} to={`/movies/${film.id}`}>
+                                    <SwiperSlide key={`favoritesMovies-list-item-${film.id}`}>
+                                        <Link className={style.link} to={`/movies/${film.id}`} >
                                             <div className={style.film}>
                                                 <div className={style.backFilm}>
                                                     <div className={style.backImg} style={{backgroundImage: `url(${backLogo})`}}>
@@ -63,7 +62,7 @@ const Favorites = () => {
                                                             <path d="M24.501,98.001c-1.021,0-2.042-0.245-2.952-0.709C19.361,96.179,18,93.959,18,91.5v-75	C18,10.701,22.701,6,28.5,6h47C81.299,6,86,10.701,86,16.5v75.501c0,3.314-2.686,6-5.999,6h0c-1.299,0-2.562-0.421-3.601-1.2L50,77	l3.011,1.949L28.322,96.757C27.215,97.567,25.889,98.001,24.501,98.001z" opacity=".35"/>
                                                             <path fill="black" d="M22.501,96.001c-1.021,0-2.042-0.245-2.952-0.709C17.361,94.179,16,91.959,16,89.5v-75	C16,8.71,20.71,4,26.5,4h47C79.29,4,84,8.71,84,14.5v75c0,2.459-1.361,4.679-3.552,5.793C79.54,95.756,78.521,96,77.5,96	c-1.387,0-2.712-0.432-3.831-1.249L50,77.537l-23.678,17.22C25.215,95.567,23.889,96.001,22.501,96.001z"/>
                                                             <path fill={result ? 'red' : "white"} d="M26.5,10.5h47c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
-                                                            <path fill="none" stroke="#40396e" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M26.5,10.5h47	c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
+                                                            <path fill="none" stroke="#40396e" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="3" d="M26.5,10.5h47	c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
                                                         </svg>
                                                     </div>
                                                 </div>
@@ -80,7 +79,7 @@ const Favorites = () => {
                 <>
                     <h2>Favorites Tv Shows</h2>
                     <div className={style.contentShow}>
-                        <Swiper {...params}>
+                        <Swiper {...params} navigation={newDataShows.length > 6}>
                             {newDataShows.map(show => {
                                 const result = newDataShows.find(favoriteTvShows => {
                                     return favoriteTvShows.id === show.id
@@ -98,7 +97,7 @@ const Favorites = () => {
                                     }
                                 }
                                 return (
-                                    <SwiperSlide>
+                                    <SwiperSlide key={`favoritesTvShows-list-item-${show.id}`}>
                                         <Link className={style.link} to={`/tvShows/${show.id}`} >
                                             <div className={style.show}>
                                                 <div className={style.backShow}>
@@ -117,7 +116,7 @@ const Favorites = () => {
                                                             <path d="M24.501,98.001c-1.021,0-2.042-0.245-2.952-0.709C19.361,96.179,18,93.959,18,91.5v-75	C18,10.701,22.701,6,28.5,6h47C81.299,6,86,10.701,86,16.5v75.501c0,3.314-2.686,6-5.999,6h0c-1.299,0-2.562-0.421-3.601-1.2L50,77	l3.011,1.949L28.322,96.757C27.215,97.567,25.889,98.001,24.501,98.001z" opacity=".35"/>
                                                             <path fill="black" d="M22.501,96.001c-1.021,0-2.042-0.245-2.952-0.709C17.361,94.179,16,91.959,16,89.5v-75	C16,8.71,20.71,4,26.5,4h47C79.29,4,84,8.71,84,14.5v75c0,2.459-1.361,4.679-3.552,5.793C79.54,95.756,78.521,96,77.5,96	c-1.387,0-2.712-0.432-3.831-1.249L50,77.537l-23.678,17.22C25.215,95.567,23.889,96.001,22.501,96.001z"/>
                                                             <path fill={result ? 'red' : "white"} d="M26.5,10.5h47c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
-                                                            <path fill="none" stroke="#40396e" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M26.5,10.5h47	c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
+                                                            <path fill="none" stroke="#40396e" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="3" d="M26.5,10.5h47	c2.209,0,4,1.791,4,4v75L50,69.5l-27.5,20v-75C22.5,12.291,24.291,10.5,26.5,10.5z"/>
                                                         </svg>
                                                     </div>
                                                 </div>

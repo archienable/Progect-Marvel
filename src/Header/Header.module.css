@@ -11,6 +11,15 @@
     gap: 25px;
 }
 
+.svgOpenModal {
+    height: 44px;
+    padding-bottom: 18px;
+}
+
+.svgOpenModal:hover {
+    fill: red;
+}
+
 .movies {
     color: white;
     text-decoration: none;
